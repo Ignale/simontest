@@ -46,6 +46,15 @@
         <audio src="">
           <source src="../audio/faa.mp3">
         </audio>
+        <audio src="">
+          <source src="../audio/mii.mp3">
+        </audio>
+        <audio src="">
+          <source src="../audio/doo.mp3">
+        </audio>
+        <audio src="">
+          <source src="../audio/ree.mp3">
+        </audio>
         
       </div>
     </div>
@@ -71,7 +80,6 @@ export default {
       startGame() {
         var audio = new Audio()
         var int;
-        console.log(this.level)
         switch(this.level) {
           case '1': int = 1500
           break;
@@ -108,7 +116,6 @@ export default {
         }
         var audio = new Audio()
         audio.src = audioSrc
-        console.log(audio.src)
         audio.play()
         if(this.started && this.simArr.length !== this.userArr.length) {
           const index = $e.target.innerText
@@ -126,8 +133,6 @@ export default {
       },
 
       continueGame() {
-        console.log('game continued')
-        console.log(this.userArr)
           const index = Math.floor(Math.random() * 4 ) + 1
           this.simArr.push(index)
           this.addClass()
@@ -151,7 +156,6 @@ export default {
         var changeColor = setInterval(()=> {
           if (i>=this.simArr.length){
             clearInterval(changeColor)
-            console.log('the end')
             this.objData.forEach((item, i, arr) => {arr[i] = false})
           }else {
             this.objData.forEach((item, i, arr) => {arr[i] = false})
